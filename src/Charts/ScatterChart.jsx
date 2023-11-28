@@ -57,8 +57,10 @@ const data = {
       data: Object.keys(chartvalues.PageValues).map((key) => ({
         y: chartvalues.PageValues[key],
         x: chartvalues.Revenue[key],
-      })),
+       
+      } )),  
       backgroundColor: 'rgba(255, 99, 132, 0.6)', // Adjust the color as needed
+      
     },
     {
       label: 'Exit Rates vs Revenue',
@@ -71,7 +73,7 @@ const data = {
     {
       label: 'Page Values vs Revenue',
       data: Object.keys(chartvalues.BounceRates).map((key) => ({
-        y: chartvalues.BounceRates[key],
+        y: <chartvalues className="bo"></chartvalues>[key],
         x: chartvalues.Revenue[key],
       })),
       backgroundColor: 'rgba(255, 206, 86, 0.6)', // Adjust the color as needed
@@ -82,6 +84,7 @@ console.log(Object.keys(chartvalues.BounceRates).map((key) => ({
     y: chartvalues.BounceRates[key],
     x: chartvalues.Revenue[key],
   })));
+  
 const options = {
   scales: {
     x: {
@@ -106,10 +109,63 @@ const options = {
 const ScaterChart = () => {
   return (
     <div>
-      <h2>Scatter Plot</h2>
+      <h2 style={{color:'black'}}>Scatter Plot</h2>
       <Scatter data={data} options={options} />
     </div>
   );
 };
 
 export default ScaterChart ;
+
+
+
+// import React from 'react';
+// import { Scatter } from 'react-chartjs-2';
+
+// const ScatterPlot = ({ data }) => {
+//   const chartData = {
+//     datasets: [
+//       {
+//         label: 'Bounce Rates vs Revenue',
+//         data: data.map(item => ({ x: item.BounceRates, y: item.Revenue })),
+//         backgroundColor: 'rgba(75, 192, 192, 0.6)',
+//       },
+//       {
+//         label: 'Exit Rates vs Revenue',
+//         data: data.map(item => ({ x: item.ExitRates, y: item.Revenue })),
+//         backgroundColor: 'rgba(255, 99, 132, 0.6)',
+//       },
+//       {
+//         label: 'Page Values vs Revenue',
+//         data: data.map(item => ({ x: item.PageValues, y: item.Revenue })),
+//         backgroundColor: 'rgba(255, 205, 86, 0.6)',
+//       },
+//     ],
+//   };
+
+//   const options = {
+//     scales: {
+//       x: {
+//         type: 'linear',
+//         position: 'bottom',
+//         title: {
+//           display: true,
+//           text: 'Values',
+//         },
+//       },
+//       y: {
+//         type: 'linear',
+//         position: 'left',
+//         title: {
+//           display: true,
+//           text: 'Revenue',
+//         },
+//       },
+//     },
+//   };
+
+//   return <Scatter data={chartData} options={options} />;
+// };
+
+// export default ScatterPlot;
+

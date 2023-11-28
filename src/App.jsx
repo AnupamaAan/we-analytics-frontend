@@ -92,8 +92,8 @@ function App() {
       {/* <DoughnutChart /> */}
      
       <div className="main">
-        {/* <VerticalBar /> */}
         {/* <Donuts /> */}
+        <ChartOne/>
         <ScaterChart />
         <BarChart />
       </div>

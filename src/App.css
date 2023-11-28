@@ -45,7 +45,7 @@
 .pi {
   /* position: absolute; */
   margin-top: 0;
-  margin-left: 15rem;
+  margin-left: 5rem;
   width: 500px;
   /* height:400px; */
   /* background-color: rgb(175, 175, 124); */
@@ -65,8 +65,8 @@
   width: 50%;
   margin-left: 150px;
   margin-top: 70px;
-  position: relative;
-  background-color: pink;
+  /* position: relative; */
+  /* background-color: pink; */
 }
 
 /* DataTable.css */
