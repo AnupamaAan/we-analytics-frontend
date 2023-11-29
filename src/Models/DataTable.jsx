@@ -4,7 +4,7 @@ import Modal from "./Modal";
 
 const DataTable = ({ data }) => {
   if (data === null) {
-    return <div>No data available</div>;
+    return <div>No data available </div>;
   }
   const initialFormData = data.reduce((obj, item) => {
     return {
