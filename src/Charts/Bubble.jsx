@@ -28,7 +28,7 @@ export const options = {
     },
     title: {
       display: true,
-      text: "Chart.js Bar Chart",
+      // text: "Page comparison",
     },
   },
 };
@@ -44,13 +44,13 @@ export const data = {
       //   console.log(faker.datatype.number({ min: 0, max: 310000 }), "mov");
       //   return faker.datatype.number({ min: 0, max: 310000 });
       // }),
-      data:[6475,1500,91985],
+      data: [6475, 1500, 91985],
       backgroundColor: "rgba(255, 99, 132, 0.5)",
     },
     {
       label: "false",
       // data: labels.map(() => faker.datatype.number({ min: 0, max: 310000 })),
-      data:[22071,4709,299264],
+      data: [22071, 4709, 299264],
       backgroundColor: "rgba(53, 162, 235, 0.5)",
     },
   ],
@@ -59,7 +59,13 @@ export const data = {
 export default function BarChart() {
   return (
     <div>
-      <Bar options={options} data={data} style={{ width: "500px" }} />
+      <h2 style={{ color: "black" }}>Page comparison</h2>
+      <Bar
+        className="BarChart"
+        options={options}
+        data={data}
+        style={{ width: "500px" }}
+      />
     </div>
   );
 }

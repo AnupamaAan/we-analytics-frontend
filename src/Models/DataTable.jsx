@@ -9,27 +9,31 @@ const DataTable = ({ data }) => {
   const initialFormData = data.reduce((obj, item) => {
     return {
       ...obj,
-      [item]: "5",
+      [item]: "",
     };
   }, {});
   // console.log(initialFormData, "datassss");
 
   const [formData, setFormData] = useState(initialFormData);
+  const [dataOutput, setDataOutput] = useState()
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    console.log(typeof(Number(value)),'value');
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [name]: Number(value),
     }));
   };
   // console.log(formData,'formdata');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Do something with the formData, e.g., store in an array
-    const dataArray = Object.values(formData);
-    // console.log(dataArray);
+    const temp = Object.values(formData);
+    const dataArray = {
+      user_input: temp,
+    };
+    console.log(dataArray,'dataaaa');
 
     axios
     .post("http://localhost:8000/api/predict/", dataArray, {
@@ -38,51 +42,74 @@ const DataTable = ({ data }) => {
       },
     })
     .then((response) => {
-      // console.log("response", response);
+      setDataOutput(response.data.prediction_data.Output)
+      console.log("response", response);
     })
     .catch((error) => {
       console.error("Error making the request:", error);
     });
-
+    handleShowModal();
 
   };
 
+  // const renderFields = () => {
+  //   return data.map((key, index) => (
+  //     <div key={key} className="form-group">
+  //       <label htmlFor={key}>{key}</label>
+  //       <input
+  //         type="text"
+  //         id={index}
+  //         name={key}
+  //         value={formData.key}
+  //         onChange={handleInputChange}
+  //       />
+  //     </div>
+  //   ));
+  // };
   const renderFields = () => {
-    return data.map((key, index) => (
-      <div key={key} className="form-group">
-        <label htmlFor={key}>{key}</label>
-        <input
-          type="text"
-          id={index}
-          name={key}
-          value={formData.key}
-          onChange={handleInputChange}
-        />
+    return (
+      <div className="form-group-container">
+        {data.map((key, index) => (
+          <div key={key} className="form-group">
+            <label htmlFor={key}>{key}</label>
+            <input
+              type="text"
+              id={index}
+              name={key}
+              value={formData.key}
+              // value={4}
+              onChange={handleInputChange}
+            />
+          </div>
+        ))}
       </div>
-    ));
+    );
   };
+  
+
+
 // for modals
 const [showModal, setShowModal] = useState(false);
 
 const handleShowModal = () => setShowModal(true);
 const handleCloseModal = () => setShowModal(false);
 
-const handleModalSubmit = (e) => {
-  e.preventDefault();
-  // Add your form submission logic here
-  handleShowModal();
-};
+// const handleModalSubmit = (e) => {
+//   e.preventDefault();
+// };
 //
   
 
   return (
     <div className="form-container">
+      <div className="form-box">
       <form onSubmit={handleSubmit}>
         {renderFields()}
         {/* <hr /> */}
-        <button type="submit" onClick={handleModalSubmit}>Submit</button>
+        <button type="submit">Submit</button>
       </form>
-      <Modal show={showModal} handleClose={handleCloseModal}/>
+      </div>
+      <Modal show={showModal} handleClose={handleCloseModal} dataOutput={dataOutput}/>
       <br />
       <br />
     </div>

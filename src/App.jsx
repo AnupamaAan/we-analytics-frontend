@@ -47,11 +47,9 @@ function App() {
   //   },
   // };
 
-
-
   useEffect(() => {
-    console.log(formlabel,'forms');
-    setData(formlabel)
+    console.log(formlabel, "forms");
+    setData(formlabel);
     const userInputData = JSON.stringify({
       user_input: [
         -0.990128076, -0.996658527, -0.52048939, -0.491697374, 0.250488013,
@@ -61,7 +59,7 @@ function App() {
         1,
       ],
     });
-    console.log(userInputData,'userinput');
+    console.log(userInputData, "userinput");
     //     dispatch(
     //       userInput(userInputData, (res) => {
     //         if(res.status === 200){
@@ -87,18 +85,19 @@ function App() {
 
   return (
     <>
-      <Nav />
+      {/* <Nav /> */}
       {/* <ChartOne /> */}
       {/* <DoughnutChart /> */}
-     
       <div className="main">
         {/* <Donuts /> */}
-        <ChartOne/>
-        <ScaterChart />
-        <BarChart />
+        <ChartOne />
+        <div className="section">
+          <ScaterChart />
+          <BarChart/>
+        </div>
       </div>
       <div className="table-main">
-        <h1 className="title">Web Analytics</h1>
+        <h1 className="title">Web analytics predictive model</h1>
         <br />
         <DataTable data={data} />
       </div>

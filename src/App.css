@@ -1,10 +1,8 @@
 * {
-  background-color: #e6eeff;
-  margin: 0;
-  /* max-width: 1000px; */
+  background-color: #ffff;
 }
 
-.nav {
+/* .nav {
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -34,50 +32,54 @@
   background-color: rgb(204, 221, 255);
 
 }
+/* main */
+.main {
+  display: flex;
+  justify-content: space-around;
+}
 .first-graph {
   text-align: center;
   color: black;
-  margin-bottom: 53px;
-  /* width: fit-content; */
-  /* background-color: red; */
-}
-
-.pi {
-  /* position: absolute; */
-  margin-top: 0;
-  margin-left: 5rem;
-  width: 500px;
-  /* height:400px; */
-  /* background-color: rgb(175, 175, 124); */
 }
 .donut{
-  background-color: #4CAF50;
-  width: 100%;
-  height: 300px;
+  width: 35%;
+  height: 670px;
+}
+.chart-one{
+  border: 2px solid rgb(218, 214, 214);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(253, 252, 252, 0.19);
+  /* height: 650px; */
+  padding: 10px;
+
+}
+.section {
+  display: flex;
+  flex-direction:column;
+  background-color: rgb(7, 120, 120);
+}
+/* scatter chart */
+.Scatter{
+  width: 600px;
+  height: 370px;
+}
+.ScatterChart{
+  border: 2px solid rgb(218, 214, 214);
+  /* box-shadow: 1px 1px 2px 1px ; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(253, 252, 252, 0.19);
+}
+.BarChart{
+  border: 2px solid rgb(218, 214, 214);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(253, 252, 252, 0.19);
 }
 
-/* main */
-
-.main {
-  /* display: flex; */
-  /* justify-content: space-evenly; */
-  /* gap: 100px; */
-  width: 50%;
-  margin-left: 150px;
-  margin-top: 70px;
-  /* position: relative; */
-  /* background-color: pink; */
-}
 
 /* DataTable.css */
 
 .table-main{
-  /* margin-bottom: 20px; */
-  margin-top: -69rem;
-  margin-left: 52rem;
-  width: 470px;
-  /* background-color: aqua; */
-  position: relative;
+  /* margin-top: -69rem;
+  margin-left: 52rem; */
+  /* width: 470px; */
+  /* position: relative; */
 
 }
 .title {
@@ -85,19 +87,30 @@
   text-align: center;
   color: #333;
   font-weight: bold;
+  margin-top: 4rem;
 }
 .form-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #dd5757;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  /* background-color: red; */
+  display: flex;
+  flex-direction: column; /* Stack form items vertically */
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 4px 5px 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+  padding: 20px; /* Add padding as needed */
+  width: 900px; /* Set the width of the form box, adjust as needed */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-group-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .form-group {
-  margin-bottom: 15px;
+  flex: 0 0 calc(25% - 10px);
+  margin-bottom: 10px;
 }
 
 label {
@@ -114,19 +127,22 @@ input {
   border: 1px solid #100c0c;
   border-radius: 4px;
   color: #100c0c;
+  background-color: rgb(157, 216, 245);
 }
 
 button {
-  /* background-color: #4caf50; */
-  color: #fff;
+  color: #f8f4f4;
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  background-color: #101010;
+
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #161716;
+  color: white;
 }
 
 
@@ -154,8 +170,8 @@ button:hover {
   height: 150px;
 }
 .modal-main button{
-  margin-top: 120px;
-  margin-left: 20px;
+  margin-top: 10px;
+  margin-left: auto;
 }
 .display-block {
   display: block;

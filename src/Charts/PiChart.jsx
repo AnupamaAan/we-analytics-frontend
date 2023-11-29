@@ -1,15 +1,12 @@
 import React from 'react'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-// import 'chartjs-plugin-datalabels'; 
-
 
 function ChartOne() {
 
     ChartJS.register(ArcElement, Tooltip, Legend);
-
      const data = {
-      labels: ['Feb','March','May','June','July','Aug','Sep','Oct','Nov','Dec'],
+      labels: ['Feb(0.15%)','March(10.06%)','May(19.12%)','June(1.51%)','July(3.45%)','Aug(3.98%)','Sep(4.50%)','Oct(6.02%)','Nov(39.83%)','Dec(11.32%)'],
       datasets: [
         {
           label: '%',
@@ -29,12 +26,6 @@ function ChartOne() {
 
           ],
           borderColor: [
-            // 'rgba(255, 99, 132, 1)',
-            // 'rgba(54, 162, 235, 1)',
-            // 'rgba(255, 206, 86, 1)',
-            // 'rgba(75, 192, 192, 1)',
-            // 'rgba(153, 102, 255, 1)',
-            // 'rgba(255, 159, 64, 1)',
             '#8c8c8c'
           ],
           Text:[
@@ -52,38 +43,12 @@ function ChartOne() {
     const options = {
         maintainAspectRatio: false, // This property allows you to set your own aspect ratio.
         responsive: true,
-        // legend: {
-        //     display: true,
-        //     position: 'bottom', // You can adjust the position as needed (top, right, bottom, left)
-        //   },
-
-        // plugins: {
-        //     datalabels: {
-        //       color: '#fff', // Label text color
-        //       anchor: 'end', // Label anchor position
-        //       align: 'start', // Label text alignment
-        //       offset: 4, // Offset from the center of the doughnut
-        //       font: {
-        //         weight: 'bold',
-        //       },
-        //       formatter: (value, context) => {
-        //         // Customize the text here based on your requirements
-        //         return `${context.chart.data.labels[context.dataIndex]}: ${value}`;
-
-        //       },
-        //     },
-        //   },
       };
 
   return (
-    <div className='pi' >
-    <h2 className='first-graph'>Month vs Revenue</h2>
     <div className='donut' >
-      <Doughnut  options={options} data={data} 
-      style={{ width: 'fit-content',
-      // backgroundColor:'yellow'       
-       }}/>
-    </div>
+    <h2 className='first-graph'>Month vs Revenue</h2>
+      <Doughnut className='chart-one'  options={options} data={data}/>
     </div>
   )
 }

@@ -54,13 +54,11 @@ const data = {
   datasets: [
     {
       label: 'Bounce Rates vs Revenue',
-      data: Object.keys(chartvalues.PageValues).map((key) => ({
-        y: chartvalues.PageValues[key],
+      data: Object.keys(chartvalues.BounceRates).map((key) => ({
+        y: chartvalues.BounceRates[key],
         x: chartvalues.Revenue[key],
-       
-      } )),  
+      })),
       backgroundColor: 'rgba(255, 99, 132, 0.6)', // Adjust the color as needed
-      
     },
     {
       label: 'Exit Rates vs Revenue',
@@ -72,8 +70,8 @@ const data = {
     },
     {
       label: 'Page Values vs Revenue',
-      data: Object.keys(chartvalues.BounceRates).map((key) => ({
-        y: <chartvalues className="bo"></chartvalues>[key],
+      data: Object.keys(chartvalues.PageValues).map((key) => ({
+        y: chartvalues.PageValues[key],
         x: chartvalues.Revenue[key],
       })),
       backgroundColor: 'rgba(255, 206, 86, 0.6)', // Adjust the color as needed
@@ -84,7 +82,6 @@ console.log(Object.keys(chartvalues.BounceRates).map((key) => ({
     y: chartvalues.BounceRates[key],
     x: chartvalues.Revenue[key],
   })));
-  
 const options = {
   scales: {
     x: {
@@ -92,7 +89,7 @@ const options = {
       position: 'bottom',
       title: {
         display: true,
-        text: 'Bounce Rates, Exit Rates, Page Values',
+        text: 'Revenue',
       },
     },
     y: {
@@ -100,7 +97,8 @@ const options = {
       position: 'left',
       title: {
         display: true,
-        text: 'Revenue',
+        text: 'Bounce Rates, Exit Rates, Page Values',
+
       },
     },
   },
@@ -108,9 +106,9 @@ const options = {
 
 const ScaterChart = () => {
   return (
-    <div>
-      <h2 style={{color:'black'}}>Scatter Plot</h2>
-      <Scatter data={data} options={options} />
+    <div className="Scatter">
+      <h2 style={{color:'black'}}>Session comparison</h2>
+      <Scatter className='ScatterChart' data={data} options={options} />
     </div>
   );
 };
